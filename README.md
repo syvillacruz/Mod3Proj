@@ -36,8 +36,11 @@ function burn(uint256 amount) public {
 ```
 
 ```
-function transfer(address to, uint256 amount) public override returns (bool) {
-    return super.transfer(to, amount);
+function transferToken(address recipient, uint256 amount) public {
+        emit Transfer(msg.sender, recipient, amount);
+        _transfer(msg.sender, recipient, amount);
+
+    }
 }
 ```
 ### Executing program
